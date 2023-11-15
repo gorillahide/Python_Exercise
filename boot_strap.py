@@ -10,6 +10,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from plotnine import *
 
+"""
+When you inevitably run into errors trying to run this, learn to use
+the working directory feature on your IDE. Hardcoding isn't going to work.
+"""
+
+
 dat = pd.read_csv("2017_Fuel_Economy_Data.csv")
 
 dat = dat["Combined Mileage (mpg)"]
