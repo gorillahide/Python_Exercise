@@ -25,25 +25,35 @@ class Boot:
         self.boot_stat = None
         self.ci_level = ci_level
         self.boot_df = None
+        self.sims_list = []
     
     def boot_taker(self, n_boot):
         for i in range(n_boot):
-            boot_sample = dat.sample(n, replace = True)
+            boot_sample = self.dat.sample(n_boot, replace = True)
+            self.sims_list.append(boot_sample)
             
-            if stat == "median":
-                boot_stat.append(float(boot_sample.median()))
-            elif stat == "mean":
-                boot_stat.append(float(boot_sample.mean()))
-            elif stat == "std dev":
-                boot_stat.append(float(boot_sample.std()))
+            if self.stat == "median":
+                self.boot_stat.append(float(boot_sample.median()))
+            elif self.stat == "mean":
+                self.boot_stat.append(float(boot_sample.mean()))
+            elif self.stat == "std dev":
+                self.boot_stat.append(float(boot_sample.std()))
             else:
                 raise TypeError("Wrong statistic name")
+
     def gen_histogram(self):
         (
          ggplot(self.boot_df, aes(x = "x"))+
          geom_histogram()
          )
+    def clear_sims_list(self):
+        self.sims_list = []
 
+    def add_sims_list(self, list):
+        self.sims_list.append(list)
+        
+    
 
 Boot("mean", 100, pd.read_csv("2017_Fuel_Economy_Data.csv"), .95)
 Boot.gen_histogram(Boot)
+
