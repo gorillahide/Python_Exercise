@@ -20,12 +20,13 @@ class Boot:
     def __init__(self, stat = "mean", n_boot = 100, dat = None, boot_df = None, ci_level = .95):
         self.stat = stat
         self.n_boot = n_boot
-        self.dat = None
+        self.dat = dat
         self.n = len(dat)
         self.boot_stat = None
         self.ci_level = ci_level
         self.boot_df = None
         self.sims_list = []
+        
     
     def boot_taker(self, n_boot):
         for i in range(n_boot):
@@ -51,6 +52,9 @@ class Boot:
 
     def add_sims_list(self, list):
         self.sims_list.append(list)
+        
+    def load_data(self, dat):
+        self.dat = dat
         
     
 
