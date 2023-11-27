@@ -55,7 +55,7 @@ class Boot:
         
     def load_data(self, dat):
         self.dat = dat
-        
+        self.n = len(dat)
     
 
 Boot("mean", 100, pd.read_csv("2017_Fuel_Economy_Data.csv"), .95)
