@@ -70,7 +70,6 @@ class Boot:
             else:
                 raise TypeError("Wrong statistic name")
 
-                    
     def change_stat(self, stat):
         """
         Void function that changes desired statistic.
@@ -109,11 +108,9 @@ class Boot:
     
         plot = (
             ggplot(boot_df, aes(x = "x"))+
-            geom_histogram()
+            geom_histogram(fill = "green", color = "gold")
         )
         print(plot)
-
-    
     
     def clear_sims_list(self):
         """
@@ -162,6 +159,8 @@ class Boot:
 # example using the 2017 fuel economy data file from local directory
 dat =  pd.read_csv("2017_Fuel_Economy_Data.csv")
 dat = dat["Combined Mileage (mpg)"]
+
+
 strap = Boot("mean", 100, dat, .95)
 strap.boot_taker()
 strap.gen_histogram()
