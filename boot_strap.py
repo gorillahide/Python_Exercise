@@ -13,7 +13,10 @@ import numpy as np
 
 """
 When you inevitably run into errors trying to run this, learn to use
-the working directory feature on your IDE. Hardcoding isn't going to work.
+the working directory feature on your IDE. 
+
+Alternatively, you can import the relevant file system code for your OS.
+This was made on LinuxTM
 """
 
 
