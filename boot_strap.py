@@ -20,8 +20,6 @@ the working directory feature on your IDE. Hardcoding isn't going to work.
 class Boot:
     def __init__(self, stat = "mean", n_boot = 100, dat = None, ci_level = .95):
         """
-        
-
         Parameters
         ----------
         stat : STRING, optional
@@ -48,7 +46,7 @@ class Boot:
     
     def boot_taker(self):
         """
-        Generates boot samples
+        Generates n_boot samples.
 
         Raises
         ------
@@ -161,6 +159,7 @@ class Boot:
         self.dat = dat
         self.n = len(dat)
     
+# example using the 2017 fuel economy data file from local directory
 dat =  pd.read_csv("2017_Fuel_Economy_Data.csv")
 dat = dat["Combined Mileage (mpg)"]
 strap = Boot("mean", 100, dat, .95)
