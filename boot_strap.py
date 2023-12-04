@@ -50,11 +50,13 @@ class Boot:
 
     def gen_histogram(self):
         boot_df = pd.DataFrame({'x': self.sims_list})
-    
-        (
+
+        plot = (
          ggplot(boot_df, aes(x = "x"))+
          geom_histogram()
          )
+        print(plot)
+
     
     
     def clear_sims_list(self):
